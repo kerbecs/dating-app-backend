@@ -1,0 +1,28 @@
+package app.auth.service.application.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+@Table(name = "login_token")
+public class LoginToken {
+    @Id
+    @Column(name = "login_token_id", nullable = false, updatable = false, unique = true, insertable = false)
+    private String id;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false, updatable = false)
+    private User user;
+
+    @Column(name = "generation_date", nullable = false, updatable = false)
+    private LocalDateTime generationDate;
+}
