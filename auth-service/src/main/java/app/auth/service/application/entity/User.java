@@ -33,6 +33,9 @@ public class User {
     @Column(name = "registration_date", nullable = false, updatable = false)
     private LocalDateTime registrationDate;
 
+    @Column(name = "user_profile_id", nullable = false, updatable = false, unique = true)
+    private String userProfileId;
+
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private List<LoginToken> loginTokenList;

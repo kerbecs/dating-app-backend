@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS user_data(
     user_id bigint AUTO_INCREMENT PRIMARY KEY,
+    user_profile_id varchar(30) NOT NULL UNIQUE,
     email varchar(30) NOT NULL CHECK(length(email) >= 5) UNIQUE,
     password varchar(68) NOT NULL,
     is_active boolean NOT NULL DEFAULT false,

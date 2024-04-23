@@ -5,4 +5,5 @@ import lombok.Data;
 @Data
 public class UserDataDto {
     private final Long userId;
+    private final UserProfileDto userProfileDto;
 }

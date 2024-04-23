@@ -15,7 +15,6 @@ public class MessageController {
 
     @PostMapping
     public boolean sendMessage(@RequestBody MailMessageDto mailMessageDto) {
-        System.out.println("Send email");
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom("eduard.mititiuc@gmail.com");
         message.setTo(mailMessageDto.getTo());

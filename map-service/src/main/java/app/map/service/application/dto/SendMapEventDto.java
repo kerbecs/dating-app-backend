@@ -21,6 +21,8 @@ public class SendMapEventDto {
     @NotNull
     private Long userId;
 
+    private String userFullName;
+
     private Long userToken;
 
     @NotNull

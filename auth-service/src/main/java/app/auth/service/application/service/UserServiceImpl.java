@@ -15,6 +15,12 @@ public class UserServiceImpl implements UserService {
     public void saveUser(User user) {
         userRepository.save(user);
     }
+
+    @Override
+    public User getUserById(Long userId) {
+        return userRepository.findById(userId).orElse(null);
+    }
+
     @Override
     public User getUserByEmail(String email) {
         return userRepository.getUserByEmail(email);
@@ -23,5 +29,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public void activateUserById(Long id) {
         userRepository.activateUser(id);
+    }
+
+    @Override
+    public User getUserByUserProfileId(String profileId) {
+        return userRepository.getUserByUserProfileId(profileId);
+    }
+
+    @Override
+    public void updateUser(User user) {
+        userRepository.save(user);
     }
 }

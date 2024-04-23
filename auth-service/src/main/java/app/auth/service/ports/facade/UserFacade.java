@@ -9,4 +9,5 @@ public interface UserFacade {
     void saveUser(UserRegisterDto userRegisterDto);
     User getUserByEmail(String email);
     UserLoginResponseDto loginUser(UserLoginDto userLoginDto);
+    User getUserByUserProfileId(String profileId);
 }

@@ -7,9 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="registry" />
         <module name="message-service" />
+        <module name="gateway" />
       </profile>
-      <profile name="Annotation profile for map" enabled="true">
+      <profile name="Annotation profile for user-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -19,6 +21,10 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.28/lombok-1.18.28.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
         </processorPath>
+        <module name="Notification-Service" />
+        <module name="CompatibilityService" />
+        <module name="chat-service" />
+        <module name="user-service" />
         <module name="authService" />
         <module name="map" />
       </profile>
@@ -26,9 +32,15 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="CompatibilityService" options="-parameters" />
+      <module name="Notification-Service" options="-parameters" />
       <module name="authService" options="-parameters" />
+      <module name="chat-service" options="-parameters" />
+      <module name="gateway" options="-parameters" />
       <module name="map" options="-parameters" />
       <module name="message-service" options="-parameters" />
+      <module name="registry" options="-parameters" />
+      <module name="user-service" options="-parameters" />
     </option>
   </component>
 </project>

@@ -13,4 +13,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Transactional
     @Modifying
     void activateUser(@Param("userId") Long userId);
+
+    User getUserByUserProfileId(String profileId);
 }

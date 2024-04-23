@@ -1,7 +1,9 @@
 package app.map.service.adapters.controller;
 
+import app.map.service.adapters.feign.UserProfileClient;
 import app.map.service.application.dto.GetMapEventDto;
 import app.map.service.application.dto.SendMapEventDto;
+import app.map.service.application.dto.UserProfileDto;
 import app.map.service.application.helper.EventType;
 import app.map.service.application.helper.Visibility;
 import app.map.service.ports.facade.MapEventFacade;
@@ -17,11 +19,17 @@ import java.util.List;
 @CrossOrigin
 public class MapController {
     private final MapEventFacade mapEventFacade;
+    private final UserProfileClient userProfileClient;
 
     @GetMapping("/events")
     public List<SendMapEventDto> getAllMapEvents() {
-        System.out.println(mapEventFacade.getAllMapEvents());
-        return mapEventFacade.getAllMapEvents();
+        return mapEventFacade.getAllMapEvents().stream()
+                .peek(event -> {
+                    UserProfileDto userProfileDto = userProfileClient.getUserProfileByUserId(event.getUserId());
+                    if(userProfileDto == null) return ;
+                    event.setUserFullName(userProfileDto.getFirstName()+" "+userProfileDto.getLastName());
+                })
+                .toList();
     }
     @PostMapping("/event")
     public SendMapEventDto saveMapEvent(@RequestBody GetMapEventDto getMapEventDto){
