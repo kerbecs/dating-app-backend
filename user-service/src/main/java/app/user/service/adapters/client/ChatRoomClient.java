@@ -1,4 +1,4 @@
-package app.user.service.adapters.controller.client;
+package app.user.service.adapters.client;
 
 import app.user.service.application.dto.ChatRoomDto;
 import org.springframework.cloud.openfeign.FeignClient;

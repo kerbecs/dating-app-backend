@@ -1,5 +1,6 @@
 package app.auth.service.application.mapper;
 
+import app.auth.service.application.dto.UserAccountDto;
 import app.auth.service.application.dto.UserRegisterDto;
 import app.auth.service.application.entity.User;
 import org.mapstruct.Mapper;
@@ -12,4 +13,6 @@ public interface UserMapper {
     @Mapping(target = "registrationDate", ignore = true)
     @Mapping(target = "loginTokenList", ignore = true)
     User userRegisterDtoToUser(UserRegisterDto userRegisterDto);
+
+    UserAccountDto userToUserAccountDto(User user);
 }

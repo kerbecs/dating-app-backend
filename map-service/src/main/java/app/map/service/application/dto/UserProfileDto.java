@@ -1,5 +1,6 @@
 package app.map.service.application.dto;
 
+import app.map.service.application.helper.Coords;
 import app.map.service.application.helper.Gender;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
@@ -7,6 +8,7 @@ import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -38,6 +40,7 @@ public class UserProfileDto {
     private String imgUrl;
 
     private Set<Long> connexions;
+    private Coords coords;
     private boolean online;
 
 

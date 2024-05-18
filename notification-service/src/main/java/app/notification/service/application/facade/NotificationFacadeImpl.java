@@ -2,6 +2,7 @@ package app.notification.service.application.facade;
 
 import app.notification.service.adapter.feign.UserProfileClient;
 import app.notification.service.application.dto.UserProfileDto;
+import app.notification.service.application.entity.Notification;
 import app.notification.service.application.mapper.NotificationMapper;
 import app.notification.service.application.dto.NotificationDto;
 import app.notification.service.port.facade.NotificationFacade;
@@ -32,5 +33,13 @@ public class NotificationFacadeImpl implements NotificationFacade {
                     if(user != null) notificationDto.setSenderFirstName(user.getFirstName());
                 })
                 .toList();
+    }
+
+    @Override
+    public void readAllNotification(Long userId) {
+        List<Notification> notificationList = notificationService.getAllActiveNotificationByUserId(userId);
+        notificationList.forEach(notification -> notification.setRead(true));
+
+        notificationService.saveAllNotifications(notificationList);
     }
 }

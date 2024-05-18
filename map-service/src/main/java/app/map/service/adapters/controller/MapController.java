@@ -22,8 +22,8 @@ public class MapController {
     private final UserProfileClient userProfileClient;
 
     @GetMapping("/events")
-    public List<SendMapEventDto> getAllMapEvents() {
-        return mapEventFacade.getAllMapEvents().stream()
+    public List<SendMapEventDto> getAllMapEvents(@RequestHeader("loginToken")String loginToken) {
+        return mapEventFacade.getAllMapEvents(loginToken).stream()
                 .peek(event -> {
                     UserProfileDto userProfileDto = userProfileClient.getUserProfileByUserId(event.getUserId());
                     if(userProfileDto == null) return ;

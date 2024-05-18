@@ -1,7 +1,7 @@
 package app.user.service.adapters.controller;
 
 import app.user.service.adapters.client.NotificationClient;
-import app.user.service.adapters.controller.client.ChatRoomClient;
+import app.user.service.adapters.client.ChatRoomClient;
 import app.user.service.application.dto.ChatRoomDto;
 import app.user.service.application.dto.NotificationDto;
 import app.user.service.application.dto.UserConnexionDto;

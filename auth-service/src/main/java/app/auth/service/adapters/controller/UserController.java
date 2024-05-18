@@ -29,6 +29,10 @@ public class UserController {
     public UserLoginResponseDto loginUser(@RequestBody UserLoginDto userLoginDto) {
         return userFacade.loginUser(userLoginDto);
     }
+    @GetMapping("/user-account/{userId}")
+    public UserAccountDto getUserAccount(@PathVariable Long userId){
+        return userFacade.getUserAccount(userId);
+    }
 
     @GetMapping("/email/{email}")
     public boolean checkIfEmailIsAvailable(@PathVariable String email) {
@@ -42,7 +46,6 @@ public class UserController {
 
     @PostMapping("/token")
     public UserDataDto validateLoginToken(@RequestHeader String loginToken) {
-        System.out.println(loginToken);
         return loginTokenFacade.validateToken(loginToken);
     }
 
@@ -71,6 +74,11 @@ public class UserController {
     @PostMapping("/resetPasswordToken/{email}")
     void createResetPasswordToken(@PathVariable String email){
         resetPasswordTokenFacade.generateResetPasswordToken(email);
+    }
+    @PostMapping("/changePassword")
+    boolean changePassword(@RequestBody ChangePasswordDto changePasswordDto){
+        return
+                userFacade.changePassword(changePasswordDto);
     }
 
 }

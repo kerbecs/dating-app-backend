@@ -1,6 +1,6 @@
 package app.user.service.application.dto;
 
-import app.user.service.application.helper.Gender;
+import app.user.service.application.helper.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
@@ -33,6 +33,10 @@ public class UserProfileDto {
 
     @NotNull
     private Gender gender;
+    private Set<Education> educationList;
+    private Set<Preference> preferenceList;
+    private Race race;
+    private SexualOrientation sexualOrientation;
 
     @NotNull
     @Past
@@ -41,8 +45,10 @@ public class UserProfileDto {
     private String imgUrl;
 
     private Set<Long> connexions;
+    private Coords coords;
     private boolean online;
-
+    private UserSettings userSettings;
+    private List<String> images;
 
 
 }

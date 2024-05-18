@@ -94,4 +94,23 @@ public class UserFacadeImpl implements UserFacade {
     public User getUserByUserProfileId(String profileId) {
         return userService.getUserByUserProfileId(profileId);
     }
+
+    @Override
+    public UserAccountDto getUserAccount(Long userId) {
+        User user = userService.getUserById(userId);
+        if(user == null) return null;
+        return userMapper.userToUserAccountDto(user);
+    }
+
+    @Override
+    public boolean changePassword(ChangePasswordDto changePasswordDto) {
+        User user = userService.getUserById(changePasswordDto.getUserId());
+
+        if(user == null) return false;
+
+        user.setPassword(changePasswordDto.getNewPassword());
+        userService.saveUser(user);
+
+        return true;
+    }
 }

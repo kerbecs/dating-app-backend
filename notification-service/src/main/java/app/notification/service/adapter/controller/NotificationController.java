@@ -35,4 +35,8 @@ public class NotificationController {
     public List<NotificationDto> getAllUnreadNotificationByUserId(@PathVariable Long userId){
         return notificationFacade.getAllActiveNotificationByUserId(userId);
     }
+    @PutMapping("/readNotification/{userId}")
+    public void readAllNotification(@PathVariable Long userId){
+        notificationFacade.readAllNotification(userId);
+    }
 }

@@ -1,5 +1,6 @@
 package app.chat.service.application.dto;
 
+import app.chat.service.application.helper.MessageType;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -13,4 +14,6 @@ public class MessageDto {
     private String content;
     private Long time;
     private boolean isRead;
+    private MessageType messageType;
+
 }

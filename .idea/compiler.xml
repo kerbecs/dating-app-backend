@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="registry" />
+        <module name="Tool-Service" />
         <module name="message-service" />
         <module name="gateway" />
       </profile>
@@ -34,6 +35,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="CompatibilityService" options="-parameters" />
       <module name="Notification-Service" options="-parameters" />
+      <module name="Tool-Service" options="-parameters" />
       <module name="authService" options="-parameters" />
       <module name="chat-service" options="-parameters" />
       <module name="gateway" options="-parameters" />

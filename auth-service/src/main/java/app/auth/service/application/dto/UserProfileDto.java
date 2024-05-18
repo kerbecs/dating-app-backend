@@ -1,12 +1,13 @@
 package app.auth.service.application.dto;
 
-import app.auth.service.application.helper.Gender;
+import app.auth.service.application.helper.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -30,6 +31,10 @@ public class UserProfileDto {
 
     @NotNull
     private Gender gender;
+    private Set<Education> educationList;
+    private Set<Preference> preferenceList;
+    private Race race;
+    private SexualOrientation sexualOrientation;
 
     @NotNull
     @Past
@@ -38,6 +43,11 @@ public class UserProfileDto {
     private String imgUrl;
 
     private Set<Long> connexions;
+    private Coords coords;
+    private List<String> images;
+
+    private UserSettings userSettings;
     private boolean online;
+
 
 }

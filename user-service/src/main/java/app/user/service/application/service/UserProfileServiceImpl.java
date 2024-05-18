@@ -1,6 +1,8 @@
 package app.user.service.application.service;
 
 import app.user.service.application.entity.UserProfile;
+import app.user.service.application.helper.Language;
+import app.user.service.application.helper.UserSettings;
 import app.user.service.application.repository.UserProfileRepository;
 import app.user.service.ports.service.UserProfileService;
 import lombok.RequiredArgsConstructor;
@@ -55,4 +57,6 @@ public class UserProfileServiceImpl implements UserProfileService{
         userProfileRepository.save(userProfile);
 
     }
+
+
 }

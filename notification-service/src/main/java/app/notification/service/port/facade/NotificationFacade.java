@@ -8,4 +8,5 @@ import java.util.List;
 public interface NotificationFacade {
     NotificationDto saveNotification(NotificationDto notification);
     List<NotificationDto> getAllActiveNotificationByUserId(Long userId);
+    void readAllNotification(Long userId);
 }

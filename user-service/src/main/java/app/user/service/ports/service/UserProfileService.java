@@ -13,4 +13,5 @@ public interface UserProfileService {
     List<UserProfile> getAllUsersProfile();
     List<UserProfile> getAllUsersProfiles(Set<Long> usersId);
     void modifyUserOnlineStatus(long userId,boolean status);
+
 }

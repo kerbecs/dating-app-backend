@@ -1,6 +1,6 @@
 package app.user.service.application.entity;
 
-import app.user.service.application.helper.Gender;
+import app.user.service.application.helper.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -22,8 +22,15 @@ public class UserProfile {
     private String countryCode;
     private String city;
     private Gender gender;
+    private Set<Education> educationList;
+    private Set<Preference> preferenceList;
+    private Race race;
+    private SexualOrientation sexualOrientation;
     private String imgUrl;
+    private List<String> images;
     private Set<Long> connexions;
     private LocalDateTime birthDate;
+    private Coords coords;
+    private UserSettings userSettings;
     private boolean online;
 }
