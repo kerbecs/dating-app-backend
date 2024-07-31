@@ -6,6 +6,7 @@ import app.compatibility.service.application.helper.Preference;
 import java.util.Set;
 
 public class PreferenceCounter {
+    private PreferenceCounter() {}
     public static double countCompatibilityByPreference(UserProfileDto user1, UserProfileDto user2){
         Set<Preference> pref1 = user1.getPreferenceList();
         Set<Preference> pref2 = user2.getPreferenceList();

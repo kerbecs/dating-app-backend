@@ -1,6 +1,5 @@
 package app.auth.service.application.service;
 
-import app.auth.service.application.dto.ChangePasswordDto;
 import app.auth.service.application.entity.User;
 import app.auth.service.application.repository.UserRepository;
 import app.auth.service.ports.service.UserService;

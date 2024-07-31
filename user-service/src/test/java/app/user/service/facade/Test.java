@@ -7,11 +7,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @Import(Config.class)
-public class Test {
+class Test {
     @Autowired
     String string;
     @org.junit.jupiter.api.Test
-    public void test(){
+    void test(){
         System.out.println(string);
     }
 }

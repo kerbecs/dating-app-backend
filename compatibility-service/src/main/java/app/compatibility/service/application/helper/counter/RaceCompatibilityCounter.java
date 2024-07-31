@@ -8,9 +8,8 @@ import java.util.List;
 import static app.compatibility.service.application.helper.Race.*;
 
 public class RaceCompatibilityCounter {
+    private RaceCompatibilityCounter() {}
     public static double countCompatibilityByRace(UserProfileDto user1, UserProfileDto user2){
-        System.out.println(user1);
-        System.out.println(user2);
         Race race1 = user1.getRace();
         Race race2 = user2.getRace();
 

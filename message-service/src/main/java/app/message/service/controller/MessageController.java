@@ -23,7 +23,6 @@ public class MessageController {
         try {
             javaMailSender.send(message);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             return false;
         }
         return true;

@@ -28,7 +28,7 @@ public class UserRegisterDto {
     private String email;
 
     @NotNull
-    @Pattern(regexp = "^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\\W).*$")
+    @Pattern(regexp = "^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*\\W).*$")
     private String password;
 
     @NotNull

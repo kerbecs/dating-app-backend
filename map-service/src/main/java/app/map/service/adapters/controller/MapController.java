@@ -10,7 +10,6 @@ import app.map.service.ports.facade.MapEventFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -22,25 +21,28 @@ public class MapController {
     private final UserProfileClient userProfileClient;
 
     @GetMapping("/events")
-    public List<SendMapEventDto> getAllMapEvents(@RequestHeader("loginToken")String loginToken) {
-        return mapEventFacade.getAllMapEvents(loginToken).stream()
-                .peek(event -> {
-                    UserProfileDto userProfileDto = userProfileClient.getUserProfileByUserId(event.getUserId());
-                    if(userProfileDto == null) return ;
-                    event.setUserFullName(userProfileDto.getFirstName()+" "+userProfileDto.getLastName());
-                })
-                .toList();
+    public List<SendMapEventDto> getAllMapEvents(@RequestHeader("loginToken") String loginToken) {
+        List<SendMapEventDto> mapEvents = mapEventFacade.getAllMapEvents(loginToken);
+        mapEvents.forEach(event -> {
+            UserProfileDto userProfileDto = userProfileClient.getUserProfileByUserId(event.getUserId());
+            if (userProfileDto == null) return;
+            event.setUserFullName(userProfileDto.getFirstName() + " " + userProfileDto.getLastName());
+        });
+        return mapEvents;
     }
+
     @PostMapping("/event")
-    public SendMapEventDto saveMapEvent(@RequestBody GetMapEventDto getMapEventDto){
+    public SendMapEventDto saveMapEvent(@RequestBody GetMapEventDto getMapEventDto) {
         return mapEventFacade.saveMapEvent(getMapEventDto);
     }
+
     @GetMapping("/visibility")
-    public Visibility[] getVisibility(){
+    public Visibility[] getVisibility() {
         return Visibility.values();
     }
+
     @GetMapping("/eventType")
-    public EventType[] getEventTypes(){
+    public EventType[] getEventTypes() {
         return EventType.values();
     }
 }

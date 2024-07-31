@@ -26,7 +26,7 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(SpringExtension.class)
 @ExtendWith(MockitoExtension.class)
-public class TestUserConnexionFacade {
+class TestUserConnexionFacade {
     @MockBean
     private UserProfileService userProfileService;
     @MockBean
@@ -38,14 +38,14 @@ public class TestUserConnexionFacade {
     private final UserProfileDto userDto2 = new UserProfileDto("TGRGRTGRG8878", 11L, "John", "Bree", "USA", "Detroit", Gender.MALE, LocalDateTime.now(), "google.com/img2.png", Set.of(10L), true);
 
     @Test
-    public void testGetAllUsersConnexionsWhenUserProfileNull() {
+    void testGetAllUsersConnexionsWhenUserProfileNull() {
         when(userProfileService.getUserProfileByUserId(10L))
                 .thenReturn(null);
         assertEquals(userConnexionFacade.getAllUserConnexions(10L).size(), 0);
     }
 
     @Test
-    public void testGetAllUsersConnexionsWhenUserHasNoConnexions() {
+    void testGetAllUsersConnexionsWhenUserHasNoConnexions() {
         user1.setConnexions(null);
         when(userProfileService.getUserProfileByUserId(10L))
                 .thenReturn(user1);
@@ -53,7 +53,7 @@ public class TestUserConnexionFacade {
     }
 
     @Test
-    public void testGetAllUsersConnexions() {
+    void testGetAllUsersConnexions() {
         when(userProfileService.getUserProfileByUserId(10L))
                 .thenReturn(user1);
         when(userProfileService.getAllUsersProfiles(user1.getConnexions()))

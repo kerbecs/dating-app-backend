@@ -6,6 +6,7 @@ import app.compatibility.service.application.helper.Education;
 import java.util.Set;
 
 public class EducationCompatibilityCounter {
+    private EducationCompatibilityCounter() {}
     public static double countCompatibilityByEducation(UserProfileDto user1, UserProfileDto user2) {
         Education education1 = getHighestEducation(user1.getEducationList());
         Education education2 = getHighestEducation(user2.getEducationList());

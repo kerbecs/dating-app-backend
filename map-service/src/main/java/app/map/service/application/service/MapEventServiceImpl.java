@@ -19,7 +19,6 @@ public class MapEventServiceImpl implements MapEventService {
 
     @Override
     public void saveMapEvent(MapEvent mapEventEntity) {
-        System.out.println(mapEventEntity);
         mapEventRepository.save(mapEventEntity);
     }
 }

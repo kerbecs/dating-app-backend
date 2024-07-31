@@ -12,8 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
-
 @RestController
 @RequestMapping("/user-profile")
 @RequiredArgsConstructor
@@ -48,7 +46,6 @@ public class UserProfileController {
 
     @PutMapping("/user/online-status")
     public void modifyUserOnlineStatus(@RequestBody UserStatusDto userStatusDto) {
-        System.out.println(userStatusDto);
         this.userProfileFacade.modifyUserOnlineStatus(userStatusDto.getUserId(), userStatusDto.getIsOnline());
 
     }
@@ -72,21 +69,24 @@ public class UserProfileController {
     public void setUserCoords(@RequestBody Coords coords, @RequestHeader("loginToken") String loginToken) {
         userProfileFacade.updateUserCoords(coords, loginToken);
     }
+
     @PostMapping("/new-photo")
     public void addNewPhoto(@RequestPart("file") MultipartFile multipartFile, @RequestHeader("loginToken") String loginToken) {
-        System.out.println(multipartFile);
         userProfileFacade.addNewPhoto(multipartFile, loginToken);
     }
+
     @DeleteMapping("/photo/{file}")
-    public void deletePhoto(@PathVariable String file, @RequestHeader("loginToken") String loginToken){
+    public void deletePhoto(@PathVariable String file, @RequestHeader("loginToken") String loginToken) {
         userProfileFacade.deletePhoto(file, loginToken);
     }
+
     @PutMapping("/photo/{photo}")
     public void modifyProfilePhoto(@PathVariable String photo, @RequestHeader("loginToken") String loginToken) {
         userProfileFacade.modifyProfilePhoto(photo, loginToken);
     }
+
     @PutMapping("/language/{language}")
-    public void setUserLanguage(@PathVariable String language, @RequestHeader("loginToken") String loginToken){
+    public void setUserLanguage(@PathVariable String language, @RequestHeader("loginToken") String loginToken) {
         userProfileFacade.setUserLanguage(language, loginToken);
     }
 

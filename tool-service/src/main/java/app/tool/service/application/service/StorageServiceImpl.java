@@ -26,28 +26,28 @@ public class StorageServiceImpl implements StorageService {
             String contentType = multipartFile.getContentType();
 
             File file = this.convertToFile(multipartFile, fileName);
-            String URL = this.uploadFile(file, fileName, contentType);
+            String url = this.uploadFile(file, fileName, contentType);
             file.delete();
-            return URL;
+            return url;
         } catch (Exception e) {
-            e.printStackTrace();
             return "Image couldn't upload, Something went wrong";
         }
     }
+
     @Override
     public void delete(String file) throws IOException {
         BlobId blobId = BlobId.of("webapp-de33e.appspot.com", file); // Replace with your bucker name
-        BlobInfo blobInfo = BlobInfo.newBuilder(blobId).setContentType(getExtension(file)).build();
         InputStream inputStream = StorageServiceImpl.class.getClassLoader().getResourceAsStream("credential.json"); // change the file name with your one
         Credentials credentials = GoogleCredentials.fromStream(inputStream);
         Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
 
         Blob blobFile = storage.get(blobId);
 
-        if(blobFile == null) return;
+        if (blobFile == null) return;
 
         blobFile.delete();
     }
+
     private File convertToFile(MultipartFile multipartFile, String fileName) throws IOException {
         File tempFile = new File(fileName);
         try (FileOutputStream fos = new FileOutputStream(tempFile)) {
@@ -55,6 +55,7 @@ public class StorageServiceImpl implements StorageService {
         }
         return tempFile;
     }
+
     private String uploadFile(File file, String fileName, String contentType) throws IOException {
         BlobId blobId = BlobId.of("webapp-de33e.appspot.com", fileName); // Replace with your bucker name
         BlobInfo blobInfo = BlobInfo.newBuilder(blobId).setContentType(contentType).build();
@@ -63,9 +64,10 @@ public class StorageServiceImpl implements StorageService {
         Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
         storage.create(blobInfo, Files.readAllBytes(file.toPath()));
 
-        String DOWNLOAD_URL = "https://firebasestorage.googleapis.com/v0/b/webapp-de33e.appspot.com/o/%s?alt=media";
-        return String.format(DOWNLOAD_URL, URLEncoder.encode(fileName, StandardCharsets.UTF_8));
+        String url = "https://firebasestorage.googleapis.com/v0/b/webapp-de33e.appspot.com/o/%s?alt=media";
+        return String.format(url, URLEncoder.encode(fileName, StandardCharsets.UTF_8));
     }
+
     private String getExtension(String fileName) {
         return fileName.substring(fileName.lastIndexOf("."));
     }

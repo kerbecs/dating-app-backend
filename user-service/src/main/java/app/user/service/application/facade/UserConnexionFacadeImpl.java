@@ -20,7 +20,6 @@ public class UserConnexionFacadeImpl implements UserConnexionsFacade {
     private final UserProfileMapper  userProfileMapper;
     @Override
     public void addUserConnexion(UserConnexionDto userConnexionDto) {
-        System.out.println(userConnexionDto);
         UserProfile userProfile = userProfileService.getUserProfileByUserId(userConnexionDto.getUserId());
         UserProfile connexionProfile = userProfileService.getUserProfileByUserId(userConnexionDto.getUserConnexionId());
 

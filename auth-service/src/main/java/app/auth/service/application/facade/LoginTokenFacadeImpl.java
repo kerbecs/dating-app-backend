@@ -19,6 +19,7 @@ public class LoginTokenFacadeImpl implements LoginTokenFacade {
     @Override
     public UserDataDto validateToken(String token) {
         Optional<LoginToken> loginToken = loginTokenService.getLoginTokenByTokenId(token);
+        if(loginToken.isEmpty()) return null;
         UserProfileDto userProfileDto = userProfileClient.getUserProfileById(loginToken.get().getUser().getUserProfileId());
         return loginToken.map(value -> new UserDataDto(value.getUser().getId(), userProfileDto)).orElse(null);
     }

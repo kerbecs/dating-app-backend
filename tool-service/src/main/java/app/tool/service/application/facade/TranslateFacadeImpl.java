@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class TranslateFacadeImpl implements TranslateFacade {
     private final TranslateService translateService;
+
     @Override
     public TranslateMessageDto translate(TranslateMessageDto messageDto) throws GeneralSecurityException, IOException {
         return translateService.translate(messageDto.getMessage(), messageDto.getLanguage());

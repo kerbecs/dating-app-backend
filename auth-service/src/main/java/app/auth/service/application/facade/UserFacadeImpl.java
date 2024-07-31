@@ -98,7 +98,7 @@ public class UserFacadeImpl implements UserFacade {
     @Override
     public UserAccountDto getUserAccount(Long userId) {
         User user = userService.getUserById(userId);
-        if(user == null) return null;
+        if (user == null) return null;
         return userMapper.userToUserAccountDto(user);
     }
 
@@ -106,7 +106,7 @@ public class UserFacadeImpl implements UserFacade {
     public boolean changePassword(ChangePasswordDto changePasswordDto) {
         User user = userService.getUserById(changePasswordDto.getUserId());
 
-        if(user == null) return false;
+        if (user == null) return false;
 
         user.setPassword(changePasswordDto.getNewPassword());
         userService.saveUser(user);

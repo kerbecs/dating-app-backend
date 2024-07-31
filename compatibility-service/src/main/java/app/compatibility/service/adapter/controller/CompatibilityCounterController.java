@@ -1,6 +1,5 @@
 package app.compatibility.service.adapter.controller;
 
-import app.compatibility.service.application.helper.counter.AgeCompatibilityCounter;
 import app.compatibility.service.port.facade.CompatibilityCounterFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class CompatibilityCounterController {
     private final CompatibilityCounterFacade facade;
+
     @GetMapping("/{user1}/{user2}")
-    public Double countCompatibilityRate(@PathVariable Long user1,@PathVariable Long user2){
+    public Double countCompatibilityRate(@PathVariable Long user1, @PathVariable Long user2) {
         return facade.countCompatibilityRate(user1, user2);
     }
 

@@ -7,6 +7,7 @@ import app.compatibility.service.application.helper.SexualOrientation;
 import static app.compatibility.service.application.helper.SexualOrientation.*;
 
 public class SexualOrientationCompatibility {
+    private SexualOrientationCompatibility() {}
     public static double countCompatibilityBySexualOrientation(UserProfileDto user1, UserProfileDto user2) {
         SexualOrientation orientation1 = user1.getSexualOrientation();
         SexualOrientation orientation2 = user2.getSexualOrientation();

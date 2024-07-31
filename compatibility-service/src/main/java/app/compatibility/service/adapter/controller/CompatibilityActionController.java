@@ -34,8 +34,6 @@ public class CompatibilityActionController {
         NotificationDto notificationDto = notificationMapper.compatibilityActionDtoToNotificationDto(compatibilityActionDto);
         notificationDto.setRead(false);
 
-        System.out.println(notificationDto);
-
         notificationClient.sendNotification(notificationDto);
 
         return facade.saveCompatibilityAction(compatibilityActionDto);

@@ -9,15 +9,15 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 public class MailServiceImpl implements MailService {
     private final MailTokenRepository mailTokenRepository;
+
     @Override
     public Optional<MailToken> getMailTokenById(String token) {
-        return  mailTokenRepository.findById(token);
+        return mailTokenRepository.findById(token);
     }
 
     @Override

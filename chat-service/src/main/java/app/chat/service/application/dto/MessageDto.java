@@ -3,8 +3,6 @@ package app.chat.service.application.dto;
 import app.chat.service.application.helper.MessageType;
 import lombok.Data;
 
-import java.time.LocalDateTime;
-
 @Data
 public class MessageDto {
     private String messageId;
