@@ -1,0 +1,17 @@
+
+
+java:S1192"GDefine a constant instead of duplicating this literal "userId" 4 times.(àÚÉÄıÿÿÿÿ8ÒÇ¥ˆû1J$bba0100d-cd51-4f8b-976b-de7b58bd1f9f
+–
+java:S2259&"SA "NullPointerException" could be thrown; "getSessionAttributes()" can return null.(ëòÆŒ8èÇ¥ˆû1J$01d0d3db-5911-47a8-b844-c11cb99ee846
+–
+java:S2259$"NA "NullPointerException" could be thrown; "getNativeHeader()" can return null.(–üŸ¿ÿÿÿÿÿ8èÇ¥ˆû1J$525c3814-4def-4d95-a092-8962a7037cb2
+™
+java:S2259$"QA "NullPointerException" could be thrown; "stompHeaderAccessor" is nullable here.(–üŸ¿ÿÿÿÿÿ8éÇ¥ˆû1J$dcd088fe-d7a2-4066-9209-11103aee714f
+›
+java:S2259"SA "NullPointerException" could be thrown; "getSessionAttributes()" can return null.(§‹ÙØÿÿÿÿÿ8èÇ¥ˆû1J$48d641c0-8a18-47b7-b658-a05e04eab29b
+›
+java:S2259"SA "NullPointerException" could be thrown; "getSessionAttributes()" can return null.(àÚÉÄıÿÿÿÿ8èÇ¥ˆû1J$19697563-175e-4233-8311-0e4ead7b87fa
+”
+java:S2259#"LA "NullPointerException" could be thrown; "headerAccessor" is nullable here.(¦®¢«üÿÿÿÿ8èÇ¥ˆû1J$e37f9fec-96fd-466b-b276-ea55f1b151bd
+Ú
+java:S4449#"‘Annotate the parameter with @javax.annotation.Nullable in method 'getAccessor' declaration, or make sure that null can not be passed as argument.(¦®¢«üÿÿÿÿ8êÇ¥ˆû1J$01ab8c96-6443-4712-a402-cc63cd889f7f
