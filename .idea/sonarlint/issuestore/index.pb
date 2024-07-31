@@ -581,3 +581,5 @@ Rauth-service/src/main/java/app/auth/service/application/dto/ChangePasswordDto.j
 Nuser-service/src/main/java/app/user/service/application/helper/Preference.java,3\d\3d5dac5386357f91690db44c6e2c64b1f6779402
 …
 Uuser-service/src/main/java/app/user/service/application/helper/SexualOrientation.java,4\c\4ca60f192c9ffd669d95369c4b54d5b11edb0cc8
+C
+secret_scanning.yml,9\6\964094aa434ee749d3b948be1226cb5a909b400c
